@@ -1,0 +1,11 @@
+public void processData(String data) {
+    if (data != null && !data.isEmpty()) {
+        // Processing data
+    }
+}
+
+// Комментарий ревьюера:
+"Можено рассмотреть использование Optional для data. Это поможет избежать вложенных условий и сделает код более читаемым. Вот пример:
+if (Optional.ofNullable(data).isPresent()) {
+    // Processing data
+}"
