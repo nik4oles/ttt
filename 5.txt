@@ -1,0 +1,36 @@
+@startuml
+
+class Employee {
+    -employeeId : int
+    -name : String
+    +getEmployeeId() : int
+    +getName() : String
+    +setName(name: String) : void
+}
+
+class PayrollService {
+    -employee : Employee
+    +calculatePay() : double
+    __constructor__
+    +PayrollService(employee : Employee)
+}
+
+class HoursReportService {
+    -employee : Employee
+    +reportHours() : String
+    __constructor__
+    +HoursReportService(employee : Employee)
+}
+
+class EmployeePersistence {
+    -employee : Employee
+    +save() : void
+    __constructor__
+    +EmployeePersistence(employee : Employee)
+}
+
+Employee "1" -- "1" PayrollService : uses >
+Employee "1" -- "1" HoursReportService : uses >
+Employee "1" -- "1" EmployeePersistence : uses >
+
+@enduml
